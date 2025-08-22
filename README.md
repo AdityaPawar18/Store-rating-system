@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Rating System - Full Stack Application
 
 A comprehensive rating system with role-based access control built with React, Express.js, and PostgreSQL.
