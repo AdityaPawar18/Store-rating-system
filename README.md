@@ -1,120 +1,123 @@
-# Store rating system
-A comprehensive store rating system with role-based access control built using React, Next.js, Express.js, and PostgreSQL.
+# Rating System - Full Stack Application
 
-✨ Features
+A comprehensive rating system with role-based access control built with React, Express.js, and PostgreSQL.
 
-🔐 Three User Roles: System Administrator, Normal User, Store Owner
-🔑 Authentication: JWT-based login/registration system
-⭐ Rating System: Users can rate stores (1–5 stars)
-📊 Admin Dashboard: User and store management with analytics
-🏪 Store Management: Owners can view ratings and feedback
-✅ Form Validation: Robust validation (backend: Joi, frontend: custom rules)
+## Features
 
-🛠️ Tech Stack
+- **Three User Roles**: System Administrator, Normal User, Store Owner
+- **Authentication**: JWT-based login/registration system
+- **Rating System**: Users can rate stores (1-5 stars)
+- **Admin Dashboard**: Complete user and store management
+- **Store Management**: Owners can view their ratings and customer feedback
+- **Form Validation**: Comprehensive validation according to specifications
 
-Frontend: Next.js 15, React 19, Tailwind CSS, shadcn/ui
-Backend: Express.js, JWT Authentication
-Database: PostgreSQL
-Validation: Joi (backend), custom validation (frontend)
+## Tech Stack
 
-⚙️ Setup Instructions
-1️⃣ Prerequisites
+- **Frontend**: Next.js 15, React 19, Tailwind CSS, shadcn/ui
+- **Backend**: Express.js, JWT Authentication
+- **Database**: PostgreSQL
+- **Validation**: Joi for backend, custom validation for frontend
 
-Node.js (v18+)
-PostgreSQL (running locally or cloud)
-npm or yarn
+## Setup Instructions
 
-2️⃣ Environment Variables
+### 1. Environment Variables
 
-Create a .env file in the backend and frontend:
-DB_USER=your_db_user  
-DB_HOST=your_db_host  
-DB_NAME=your_db_name  
-DB_PASSWORD=your_db_password  
-DB_PORT=5432  
-PORT=5000  
-FRONTEND_URL=http://localhost:3000  
-JWT_SECRET=your_jwt_secret_key  
-NEXT_PUBLIC_API_URL=http://localhost:5000/api  
+Set up the following environment variables in your deployment:
 
-3️⃣ Database Setup
+\`\`\`
+DB_USER=your_db_user
+DB_HOST=your_db_host
+DB_NAME=your_db_name
+DB_PASSWORD=your_db_password
+DB_PORT=5432
+PORT=5000
+FRONTEND_URL=http://localhost:3000
+JWT_SECRET=your_jwt_secret_key
+NEXT_PUBLIC_API_URL=http://localhost:5000/api
+\`\`\`
 
-Run setup script:
+### 2. Database Setup
+
+Run the database setup scripts:
+
+\`\`\`bash
 npm run setup-db
-This creates all required tables and seeds initial data.
+\`\`\`
 
-4️⃣ Development Run
+This will create all necessary tables and seed initial data.
 
-To run both frontend & backend together:
+### 3. Development
+
+To run both frontend and backend simultaneously:
+
+\`\`\`bash
 npm run dev:full
+\`\`\`
 
-Or separately:
+Or run them separately:
 
-# Backend
-npm run server  
+\`\`\`bash
+# Terminal 1 - Backend
+npm run server
 
-# Frontend
-npm run dev  
+# Terminal 2 - Frontend  
+npm run dev
+\`\`\`
 
-👤 User Roles & Permissions
-🛡️ System Administrator
+## User Roles & Permissions
 
-Add users and stores (including new admins)
-View dashboard with stats
-Manage users & stores with full CRUD
+### System Administrator
+- Add new stores, users, and admin users
+- View dashboard with statistics
+- Manage all users and stores with filtering
+- Full CRUD operations
 
-👥 Normal User
+### Normal User
+- Register and login
+- View and search stores
+- Submit and modify ratings
+- Update password
 
-Register & login
-View/search stores
-Submit & edit ratings
-Update password
+### Store Owner
+- Login to platform
+- View store ratings and customer feedback
+- See average rating and statistics
+- Update password
 
-🏪 Store Owner
+## Validation Rules
 
-Login
-View store ratings & feedback
-Track average rating & stats
-Update password
+- **Name**: 20-60 characters
+- **Address**: Maximum 400 characters  
+- **Password**: 8-16 characters, must include uppercase letter and special character
+- **Email**: Standard email validation
+- **Ratings**: 1-5 stars only
 
-✅ Validation Rules
+## API Endpoints
 
-Name: 20–60 characters
-Address: Max 400 characters
-Password: 8–16 chars, must include uppercase & special character
-Email: Standard email format
-Ratings: 1–5 stars only
+### Authentication
+- `POST /api/auth/login` - User login
+- `POST /api/auth/register` - User registration
+- `GET /api/auth/profile` - Get user profile
 
-🔗 API Endpoints
-🔑 Authentication
+### Stores
+- `GET /api/stores` - List all stores (with search)
+- `POST /api/stores` - Create new store (admin only)
 
-POST /api/auth/login → User login
-POST /api/auth/register → User registration
-GET /api/auth/profile → Get user profile
+### Ratings
+- `POST /api/ratings` - Submit rating
+- `PUT /api/ratings/:id` - Update rating
 
-🏪 Stores
+### Admin
+- `GET /api/admin/dashboard` - Dashboard statistics
+- `GET /api/admin/users` - List users with filtering
+- `POST /api/admin/users` - Create new user
 
-GET /api/stores → List/search stores
-POST /api/stores → Create new store (admin only)
+## Default Users
 
-⭐ Ratings
+The system comes with pre-seeded users:
 
-POST /api/ratings → Submit rating
-PUT /api/ratings/:id → Update rating
+- **Admin**: admin@example.com / Admin123!
+- **User**: user@example.com / User123!
+- **Store Owner**: store@example.com / Store123!
 
-🛠️ Admin
 
-GET /api/admin/dashboard → Dashboard statistics
-GET /api/admin/users → List users with filtering
-POST /api/admin/users → Create new user
-
-👨‍💻 Default Users
-
-Pre-seeded users for testing:
-
-Role	Email	Password
-Admin	admin@example.com	Admin123!
-User	user@example.com	User123!
-Store Owner	store@example.com	Store123!
-
-This project is licensed under the MIT License.
