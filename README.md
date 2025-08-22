@@ -1,4 +1,4 @@
-#Store-rating-system
+# Store rating system
 A comprehensive store rating system with role-based access control built using React, Next.js, Express.js, and PostgreSQL.
 
 ✨ Features
