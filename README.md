@@ -120,5 +120,4 @@ The system comes with pre-seeded users:
 - **User**: user@example.com / User123!
 - **Store Owner**: store@example.com / Store123!
 =======
-# Store-rating-system
->>>>>>> a68b618ff20e297ab76ce84ee25b2110588ed456
+
